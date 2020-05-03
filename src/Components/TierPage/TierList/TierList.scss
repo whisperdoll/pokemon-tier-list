@@ -1,0 +1,23 @@
+.tierList
+{
+    display: flex;
+    flex-direction: column;
+
+    .tierListItem
+    {
+        height: 96px;
+    }
+
+    & > button
+    {
+        height: 48px;
+        background-color: transparent;
+        border: 0;
+        color: #fafafa;
+
+        &:hover
+        {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
+}

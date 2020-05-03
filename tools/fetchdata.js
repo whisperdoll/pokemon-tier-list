@@ -27,8 +27,9 @@ async function fetchFile(url)
 async function getObjectFromFile(url)
 {
     let str = await fetchFile(url);
-    str = str.substr(str.indexOf("let ") + 4);
-    str = str.substr(0, str.indexOf("\nexports."));
+    str = str.substr(str.indexOf(" = {") + 3);
+    str = "e = " + str;
+    // console.log(str);
     const script = new vm.Script(str);
     const context = vm.createContext();
     const ret = script.runInContext(context);
@@ -37,7 +38,7 @@ async function getObjectFromFile(url)
 
 async function fetchPokedex()
 {
-    const BattlePokedex = await getObjectFromFile("https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/pokedex.js")
+    const BattlePokedex = await getObjectFromFile("https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/pokedex.ts")
 
     const wantedMembers = [
         "num",
@@ -148,13 +149,17 @@ async function fetchItems()
 
 async function fetchTypes()
 {
-    const types = await getObjectFromFile("https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/typechart.js");
+    const types = await getObjectFromFile("https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/typechart.ts");
     const array = Object.keys(types).map(i => i.toLowerCase());
     if (array[0] !== "notype")
     {
         array.unshift("notype");
     }
-    fs.writeFileSync("data/typearray.json", JSON.stringify(array));
+
+    let toSave = JSON.stringify(array);
+    toSave = "let e = " + toSave + "; export default e;";
+    fs.writeFileSync("src/data/typearray.js", toSave);
+
     console.log("fetched types");
 }
 
@@ -171,7 +176,7 @@ async function fetchAll()
     // fetchAbilities();
     // fetchMoves();
     // fetchItems();
-    // fetchTypes();
+    fetchTypes();
     // fetchLearnsets();
 }
 

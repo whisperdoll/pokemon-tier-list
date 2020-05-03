@@ -1,0 +1,72 @@
+.tierListItem
+{
+    display: flex;
+    flex-direction: row;
+
+    .info
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        background-color: white;
+        color: #111;
+        height: 100%;
+        padding: 4px;
+
+        span
+        {
+            width: 56px;
+            display: inline-block;
+        }
+
+        input
+        {
+            width: 64px;
+        }
+
+        button
+        {
+            color: #111;
+            margin-top: auto;
+        }
+    }
+
+    .name
+    {
+        position: relative;
+        flex-grow: 0;
+        flex-basis: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: yellow;
+        color: #111;
+        font-size: 48px;
+        font-weight: bold;
+
+        .edit, .delete
+        {
+            border: 0;
+            background-color: transparent;
+            color: #111;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -4px;
+            font-weight: bold;
+        }
+
+        .delete
+        {
+            left: unset;
+            right: 0;
+        }
+    }
+
+    .tierInventory
+    {
+        flex-grow: 1;
+    }
+
+    border-bottom: 1px solid #555;
+}
