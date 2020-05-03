@@ -20,7 +20,6 @@ interface Props
 
 export default function TierPage(props: Props)
 {
-    const [ inventory, setInventory ] = useState([] as string[]);
     const [ dragTarget, setDragTarget ] = useState(-1);
     const [ dragSource, setDragSource ] = useState(-1);
     const [ options, setOptions ] = useState<PokeListOptions>(DefaultOptions);
@@ -68,7 +67,6 @@ export default function TierPage(props: Props)
         const t = props.tiers.slice();
         const pokemon = t.splice(id, 1)[0].pokemon;
         props.onUpdateTiers(t);
-        setInventory(inventory.concat(pokemon));
     }
 
     function handleEditTitle()
@@ -88,9 +86,21 @@ export default function TierPage(props: Props)
         props.onUpdateTiers(t);
     }
 
+    function getInventory()
+    {
+        const ret = props.pokemon.slice();
+        props.tiers.forEach((tier) =>
+        {
+            tier.pokemon.forEach(p => ret.splice(ret.indexOf(p), 1));
+        });
+        return ret;
+    }
+
     // onmount //
     useEffect(() =>
     {
+        const inventory = getInventory();
+
         document.onmousemove = (e) =>
         {
             if (movingImg.current && isMouseDown.current)
@@ -122,7 +132,7 @@ export default function TierPage(props: Props)
 
                     if (dragSource === -1)
                     {
-                        setInventory(ps);
+                        //setInventory(ps);
                     }
                     else
                     {
@@ -134,7 +144,7 @@ export default function TierPage(props: Props)
 
                     if (dragTarget === -1)
                     {
-                        setInventory(pt);
+                        //setInventory(pt);
                     }
                     else
                     {
@@ -164,7 +174,7 @@ export default function TierPage(props: Props)
 
     useEffect(() =>
     {
-        setInventory(props.pokemon);
+        //setInventory(props.pokemon);
     }, [props.pokemon]);
 
     useEffect(() =>
@@ -207,7 +217,7 @@ export default function TierPage(props: Props)
                     tiers={props.tiers}
                 />
                 <TierInventory
-                    pokemon={inventory}
+                    pokemon={getInventory()}
                     onMouseDown={handleMouseDown}
                     id={-1}
                 />
