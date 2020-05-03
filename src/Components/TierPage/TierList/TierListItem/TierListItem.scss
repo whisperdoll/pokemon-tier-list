@@ -44,7 +44,7 @@
         font-size: 48px;
         font-weight: bold;
 
-        .edit, .delete
+        .edit, .delete, .moveDown, .moveUp
         {
             border: 0;
             background-color: transparent;
@@ -54,6 +54,21 @@
             left: -6px;
             top: -8px;
             font-weight: bold;
+        }
+
+        .moveDown
+        {
+            left: unset;
+            top: unset;
+            right: -8px;
+            bottom: -6px;
+        }
+
+        .moveUp
+        {
+            left: unset;
+            right: -8px;
+            top: -6px;
         }
 
         .edit

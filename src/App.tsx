@@ -18,6 +18,79 @@ function App() {
     const [ pokemon, setPokemon ] = useState([] as string[]);
     const [ title, setTitle ] = useState("TITLE");
     const [ tiers, setTiers ] = useState<Tier[]>([]);
+
+    useEffect(() =>
+    {
+        const storedStateString = localStorage.getItem("state");
+
+        if (storedStateString)
+        {
+            const storedState = JSON.parse(storedStateString) as {
+                pokemon: string[],
+                title: string,
+                tiers: Tier[]
+            };
+
+            console.log("retrieving tiers", storedState.tiers);
+
+            setPokemon(storedState.pokemon);
+            setTitle(storedState.title);
+            setTiers(storedState.tiers);
+        }
+        else
+        {
+            setTiers([
+                {
+                    color: "#FF5555",
+                    name: "S",
+                    pokemon: []
+                },
+                {
+                    color: "#FF8055",
+                    name: "A",
+                    pokemon: []
+                },
+                {
+                    color: "#FFFF55",
+                    name: "B",
+                    pokemon: []
+                },
+                {
+                    color: "#55FF55",
+                    name: "C",
+                    pokemon: []
+                },
+                {
+                    color: "#5555FF",
+                    name: "D",
+                    pokemon: []
+                },
+                {
+                    color: "#8055FF",
+                    name: "E",
+                    pokemon: []
+                },
+                {
+                    color: "#FF55FF",
+                    name: "F",
+                    pokemon: []
+                }
+            ])
+        }
+    }, []);
+
+    useEffect(() =>
+    {
+        const state = {
+            pokemon,
+            title,
+            tiers
+        };
+
+        console.log("storing tiers", tiers);
+
+        localStorage.setItem("state", JSON.stringify(state));
+    }, [ pokemon, title, tiers ]);
     
     return (
         <div className="App">

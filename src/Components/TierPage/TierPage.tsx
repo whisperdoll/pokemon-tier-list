@@ -165,16 +165,19 @@ export default function TierPage(props: Props)
     
     useEffect(() =>
     {
-        props.onUpdateTiers(props.tiers.map(tier => ({
-            ...tier,
-            pokemon: []
-        })));
         props.onUpdatePokemon(GetPokeList(options));
     }, [ options ]);
 
     useEffect(() =>
     {
-        //setInventory(props.pokemon);
+        const t = props.tiers.slice();
+
+        t.forEach((tier) =>
+        {
+            tier.pokemon = tier.pokemon.filter(p => props.pokemon.includes(p));
+        });
+
+        props.onUpdateTiers(t);
     }, [props.pokemon]);
 
     useEffect(() =>
@@ -196,6 +199,30 @@ export default function TierPage(props: Props)
         history.replace("/tierlist?options=" + EncodePokeListOptions(options));
     }
 
+    function handleMoveTierUp(id: number)
+    {
+        if (id > 0)
+        {
+            const t = props.tiers.slice();
+            const tmp = t[id - 1];
+            t[id - 1] = t[id];
+            t[id] = tmp;
+            props.onUpdateTiers(t);
+        }
+    }
+
+    function handleMoveTierDown(id: number)
+    {
+        if (id < props.tiers.length - 1)
+        {
+            const t = props.tiers.slice();
+            const tmp = t[id + 1];
+            t[id + 1] = t[id];
+            t[id] = tmp;
+            props.onUpdateTiers(t);
+        }
+    }
+
     return (
         <div className="tierPage">
             <div className="tierPageGroup">
@@ -215,6 +242,8 @@ export default function TierPage(props: Props)
                     onAddTier={handleAddTier}
                     onDeleteTier={handleDeleteTier}
                     tiers={props.tiers}
+                    onMoveTierDown={handleMoveTierDown}
+                    onMoveTierUp={handleMoveTierUp}
                 />
                 <TierInventory
                     pokemon={getInventory()}

@@ -18,6 +18,8 @@ interface Props
     onAddTier: () => any;
     onEditTier: (id: number, tier: Tier) => any;
     onDeleteTier: (id: number) => any;
+    onMoveTierUp: (id: number) => any;
+    onMoveTierDown: (id: number) => any;
 }
 
 export default function TierList(props: Props)
@@ -35,6 +37,8 @@ export default function TierList(props: Props)
                     tier={tier}
                     key={i}
                     id={i}
+                    onMoveUp={props.onMoveTierUp}
+                    onMoveDown={props.onMoveTierDown}
                 />
             ))}
             <button onClick={props.onAddTier}>+ Add Tier</button>

@@ -12,6 +12,8 @@ interface Props
     onMouseLeave: (id: number) => any;
     onEditTier: (id: number, tier: Tier) => any;
     onDelete: (id: number) => any;
+    onMoveUp: (id: number) => any;
+    onMoveDown: (id: number) => any;
 }
 
 export default function TierListItem(props: Props)
@@ -74,6 +76,8 @@ export default function TierListItem(props: Props)
                 {props.tier.name}
                 <button className="edit" onClick={handleEdit}>🖉</button>
                 <button className="delete" onClick={() => props.onDelete(props.id)}>🗑</button>
+                <button className="moveUp" onClick={() => props.onMoveUp(props.id)}>▲</button>
+                <button className="moveDown" onClick={() => props.onMoveDown(props.id)}>▼</button>
             </div>
             <TierInventory
                 onMouseDown={props.onPokeMouseDown}
