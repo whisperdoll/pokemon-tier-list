@@ -6,6 +6,7 @@ import Point from "../../utils/point";
 import Rectangle from "../../utils/rectangle";
 import Pokedex from "../../data/pokedex";
 import { PokedexData } from "../../PokeListFactory";
+import { useLocation } from "react-router-dom";
 
 interface Props
 {
@@ -128,6 +129,10 @@ export default function SharePage(props: Props)
 
     useEffect(() =>
     {
+        if (props.tiers.length === 0)
+        {
+            
+        }
         (window as any).twttr.widgets.load();
     }, []);
 
@@ -151,17 +156,18 @@ export default function SharePage(props: Props)
                         >
                             Save as PNG
                         </a>
-                        <div className="shareGroup">
+                        {/* <div className="shareGroup">
                             <span>Share: </span>
                             <a
                                 href="https://twitter.com/share?ref_src=twsrc%5Etfw"
                                 className="twitter-share-button"
                                 data-text="I made a Tier List using Pokemon Tier List Maker! Check it out:"
                                 data-show-count="false"
+                                data-url={document.location.origin}
                             >
                                 Tweet
                             </a>
-                        </div>
+                        </div> */}
                     </div>
                 </React.Fragment>) : (<React.Fragment>
                     <div>

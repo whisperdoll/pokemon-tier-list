@@ -66,11 +66,6 @@ function App() {
                     pokemon: []
                 },
                 {
-                    color: "#8055FF",
-                    name: "E",
-                    pokemon: []
-                },
-                {
                     color: "#FF55FF",
                     name: "F",
                     pokemon: []
