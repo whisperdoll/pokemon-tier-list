@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "db913014af4741877137e19e1755d476",
+    "revision": "e300f34009c707fe6a26a2278215c6eb",
     "url": "/pokemon-tier-list/index.html"
   },
   {
-    "revision": "a8bfaff97a7ef176989e",
+    "revision": "c1b8ccc17dd5d626c9c7",
     "url": "/pokemon-tier-list/static/css/main.4f6864e4.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pokemon-tier-list/static/js/2.a44a9304.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a8bfaff97a7ef176989e",
-    "url": "/pokemon-tier-list/static/js/main.f49bbe41.chunk.js"
+    "revision": "c1b8ccc17dd5d626c9c7",
+    "url": "/pokemon-tier-list/static/js/main.1c19597b.chunk.js"
   },
   {
     "revision": "84bacba873ad0d9b2074",

@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/pokemon-tier-list/static/css/main.4f6864e4.chunk.css",
-    "main.js": "/pokemon-tier-list/static/js/main.f49bbe41.chunk.js",
-    "main.js.map": "/pokemon-tier-list/static/js/main.f49bbe41.chunk.js.map",
+    "main.js": "/pokemon-tier-list/static/js/main.1c19597b.chunk.js",
+    "main.js.map": "/pokemon-tier-list/static/js/main.1c19597b.chunk.js.map",
     "runtime-main.js": "/pokemon-tier-list/static/js/runtime-main.07d3b117.js",
     "runtime-main.js.map": "/pokemon-tier-list/static/js/runtime-main.07d3b117.js.map",
     "static/js/2.a44a9304.chunk.js": "/pokemon-tier-list/static/js/2.a44a9304.chunk.js",
     "static/js/2.a44a9304.chunk.js.map": "/pokemon-tier-list/static/js/2.a44a9304.chunk.js.map",
     "index.html": "/pokemon-tier-list/index.html",
-    "precache-manifest.7ae09ff92c1e2cf999b9331e00122feb.js": "/pokemon-tier-list/precache-manifest.7ae09ff92c1e2cf999b9331e00122feb.js",
+    "precache-manifest.78184b08a4b142cb9c10e2dd0e37770c.js": "/pokemon-tier-list/precache-manifest.78184b08a4b142cb9c10e2dd0e37770c.js",
     "service-worker.js": "/pokemon-tier-list/service-worker.js",
     "static/css/main.4f6864e4.chunk.css.map": "/pokemon-tier-list/static/css/main.4f6864e4.chunk.css.map",
     "static/js/2.a44a9304.chunk.js.LICENSE.txt": "/pokemon-tier-list/static/js/2.a44a9304.chunk.js.LICENSE.txt",
@@ -907,6 +907,6 @@
     "static/js/runtime-main.07d3b117.js",
     "static/js/2.a44a9304.chunk.js",
     "static/css/main.4f6864e4.chunk.css",
-    "static/js/main.f49bbe41.chunk.js"
+    "static/js/main.1c19597b.chunk.js"
   ]
 }

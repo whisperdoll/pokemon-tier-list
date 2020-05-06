@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pokemon-tier-list/precache-manifest.7ae09ff92c1e2cf999b9331e00122feb.js"
+  "/pokemon-tier-list/precache-manifest.78184b08a4b142cb9c10e2dd0e37770c.js"
 );
 
 self.addEventListener('message', (event) => {
