@@ -7,6 +7,7 @@ import OptionsView from "./OptionsView/OptionsView";
 import { useHistory, useLocation } from "react-router-dom";
 import { EncodePokeListOptions, DecodePokeListOptions } from "../../URLEncoderDecoder";
 import useQuery from "../../Hooks/useQuery";
+import useHistoryManager from "../../Hooks/useHistoryManager";
 
 interface Props
 {
@@ -25,8 +26,9 @@ export default function TierPage(props: Props)
     const [ options, setOptions ] = useState<PokeListOptions>(DefaultOptions);
     const [ showingOptions, setShowingOptions ] = useState(true);
 
-    const history = useHistory();
+    const [ pushUrl, setUrl ] = useHistoryManager();
     const query = useQuery();
+    const history = useHistory();
 
     const isMouseDown = useRef(false);
     const movingImg = useRef<HTMLImageElement | null>(null);
@@ -191,12 +193,12 @@ export default function TierPage(props: Props)
 
     function handleSave()
     {
-        history.push("/share");
+        pushUrl("/share");
     }
 
     function handleUpdateOptions(options: PokeListOptions)
     {
-        history.replace("/tierlist?options=" + EncodePokeListOptions(options));
+        setUrl("/tierlist?options=" + EncodePokeListOptions(options));
     }
 
     function handleMoveTierUp(id: number)

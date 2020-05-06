@@ -11,8 +11,10 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    useHistory
 } from "react-router-dom";
+import { getRouteFor } from './Hooks/useHistoryManager';
 
 function App() {
     const [ pokemon, setPokemon ] = useState([] as string[]);
@@ -91,7 +93,7 @@ function App() {
         <div className="App">
             <Router>
                 <Switch>
-                    <Route path="/tierlist">
+                    <Route path={getRouteFor("/tierlist")}>
                         <TierPage
                             pokemon={pokemon}
                             tiers={tiers}
@@ -101,13 +103,13 @@ function App() {
                             onUpdatePokemon={setPokemon}
                         />
                     </Route>
-                    <Route path="/share">
+                    <Route path={getRouteFor("/share")}>
                         <SharePage
                             tiers={tiers}
                             title={title}
                         />
                     </Route>
-                    <Route path="/">
+                    <Route path={getRouteFor("/")}>
                         <HomePage
                         />
                     </Route>

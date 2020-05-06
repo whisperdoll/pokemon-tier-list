@@ -10,6 +10,7 @@ import {
     useHistory
 } from "react-router-dom";
 import { EncodePokeListOptions } from "../../URLEncoderDecoder";
+import useHistoryManager from "../../Hooks/useHistoryManager";
 
 interface Props
 {
@@ -18,11 +19,11 @@ interface Props
 
 export default function HomePage(props: Props)
 {
-    const history = useHistory();
+    const [ pushUrl, setUrl ] = useHistoryManager();
 
     function doRedBlue()
     {
-        history.push("/tierlist?options=" + EncodePokeListOptions({
+        pushUrl("/tierlist?options=" + EncodePokeListOptions({
             generations: GenArray.map((gen, i) => i === 0),
             types: TypeArray.map(t => true)
         }));
@@ -30,7 +31,7 @@ export default function HomePage(props: Props)
 
     function doSwordShield()
     {
-        history.push("/tierlist?options=" + EncodePokeListOptions({
+        pushUrl("/tierlist?options=" + EncodePokeListOptions({
             generations: GenArray.map((gen, i) => i === 7),
             types: TypeArray.map(t => true)
         }));
@@ -38,7 +39,7 @@ export default function HomePage(props: Props)
 
     function doWaterTypes()
     {
-        history.push("/tierlist?options=" + EncodePokeListOptions({
+        pushUrl("/tierlist?options=" + EncodePokeListOptions({
             generations: GenArray.map(gen => true),
             types: TypeArray.map((type, i) => type === "water")
         }));
@@ -46,7 +47,7 @@ export default function HomePage(props: Props)
 
     function doCustom()
     {
-        history.push("/tierlist?options=" + EncodePokeListOptions(DefaultOptions));
+        pushUrl("/tierlist?options=" + EncodePokeListOptions(DefaultOptions));
     }
 
     return (
